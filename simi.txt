@@ -1,0 +1,48 @@
+Scanner sc=new Scanner(System.in);
+	System.out.println("enter student name ");
+	String name=sc.next();
+	System.out.println("enter student age ");
+	int age=sc.nextInt();
+	System.out.println("enter student marks ");
+	int marks=sc.nextInt();
+	System.out.println("enter course_id");
+	int id=sc.nextInt();
+	System.out.println("enter course_name ");
+	String cname=sc.next();
+	System.out.println("enter course duration ");
+	int d=sc.nextInt();
+	System.out.println("enter professor name");
+	String p=sc.next();
+	
+
+	Student s=new Student();
+	s.setAge(age);
+	s.setName(name);
+	s.setPreviousMarks(marks);
+	
+	//course object
+	Course c=new Course(id,cname,d);
+ 
+	//exam obj
+   Exam e=new Exam();
+
+   //professor obj
+   Professor prof=new Professor();
+   prof.setName(p);
+   prof.setStudent(s);
+   //university obj
+   University u=new University();
+	
+	u.setExam(e);
+	u.setCourse(c);
+	u.setProfessor(prof);
+	
+   
+   u.studentVerificationProcess(s);
+   u.studentAdmission(s, c);
+   prof.teaches(c);
+   prof.conductingExam(e);
+   prof.evaluatingPaper(e);
+   u.writeExamGetResult(e);
+   u.studentCertificationProcess(s, c); 
+}
